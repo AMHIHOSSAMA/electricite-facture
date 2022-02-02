@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Solicode"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-01-28 05:11:18 PM"/>
+        <attribute name="created" value="U29saWNvZGU7REVTS1RPUC1QSjhHQk80OzIwMjItMDEtMjg7MDk6MzA6MjMgQU07MzE0Mg=="/>
+        <attribute name="edited" value="U29saWNvZGU7REVTS1RPUC1QSjhHQk80OzIwMjItMDEtMjg7MDU6MTE6MTggUE07MjszMjY1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <input variable=""/>
+            <declare name="ancien1" type="Integer" array="False" size=""/>
+            <input variable="ancien1"/>
+            <declare name="nouvel2" type="Integer" array="False" size=""/>
+            <input variable="nouvel2"/>
+            <declare name="prixUn" type="Integer" array="False" size=""/>
+            <declare name="montHt" type="Integer" array="False" size=""/>
+            <declare name="montTax" type="Integer" array="False" size=""/>
+            <declare name="tva" type="Integer" array="False" size=""/>
+            <declare name="timbre" type="Integer" array="False" size=""/>
+            <declare name="sausTot" type="Integer" array="False" size=""/>
+            <assign variable="consome" expression="ancien1-nouvel2"/>
+            <call expression="Calculer"/>
+            <call expression=""/>
+            <if expression="consome&lt;=150">
+                <then>
+                    <if expression="consome&gt;=0 &amp;&amp; consome&lt;=100">
+                        <then>
+                            <output expression="consome*0.794" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="consome&gt;=101 &amp;&amp; consome&lt;=150">
+                                <then>
+                                    <output expression="100*0.794+(consome-100)*0.883" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="consome&gt;=151">
+                        <then>
+                            <if expression="consome&gt;=151 &amp;&amp; consome&lt;=210">
+                                <then>
+                                    <output expression="consome*0.9451" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="consome&gt;=211 &amp;&amp; consome&lt;=310">
+                                        <then>
+                                            <output expression="210*0.9451+(consome-210)*1.0498" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="consome&gt;=311 &amp;&amp; consome&lt;=510">
+                                                <then>
+                                                    <output expression="310*1.0498+(consome-310)*1.2913" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="consome&gt;511">
+                                                        <then>
+                                                            <output expression="510*1.2913+(consome-510)*1.4975" newline="True"/>
+                                                        </then>
+                                                        <else/>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
